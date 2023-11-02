@@ -70,7 +70,7 @@ It is a fundamental component of any VPC network.*/
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.contoso_dev_vpc.id
   tags = {
-    Name = "Terraform2023_internet_gateway"
+    Name = "contoso_internet_gateway"
   }
 }
 
@@ -128,7 +128,7 @@ resource "aws_nat_gateway" "nat_gateway" {
   subnet_id     = aws_subnet.public_subnet[0].id
   depends_on    = [aws_internet_gateway.internet_gateway]
   tags = {
-    Name = "Terraform2023InternetGateway"
+    Name = "contoso_nat_gateway"
   }
 }
 
@@ -208,7 +208,7 @@ resource "aws_autoscaling_group" "auto_scaling_group" {
 /*In this case, the route table will route all traffic to the NAT gateway, which will then forward the traffic 
 to the internet.*/
 resource "aws_route_table" "private_route_table" {
-  vpc_id = aws_vpc.vpc.id
+  vpc_id = aws_vpc.contoso_dev_vpc.id
   route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.nat_gateway.id
