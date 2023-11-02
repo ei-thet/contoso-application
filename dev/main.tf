@@ -194,14 +194,14 @@ resource "aws_autoscaling_group" "auto_scaling_group" {
     version = aws_launch_template.launch_template_meow.latest_version
   }
   # Instance Refresh (New Config)
-  # instance_refresh {
-  #   strategy = "Rolling"
-  #   preferences {
-  #     #instance_warmup = 300 # Default behavior is to use the Auto Scaling Group's health check grace period.
-  #     min_healthy_percentage = 50
-  #   }
-  #   triggers = [/*"launch_template",*/ "desired_capacity"] # You can add any argument from ASG here, if those has changes, ASG Instance Refresh will trigger
-  # }
+  instance_refresh {
+    strategy = "Rolling"
+    preferences {
+      #instance_warmup = 300 # Default behavior is to use the Auto Scaling Group's health check grace period.
+      min_healthy_percentage = 50
+    }
+    triggers = [/*"launch_template",*/ "desired_capacity"] # You can add any argument from ASG here, if those has changes, ASG Instance Refresh will trigger
+  }
 }
 
 #AWS Route-Table:  A route table is a collection of routes that determines how traffic is routed within a VPC. 
