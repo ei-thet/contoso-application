@@ -25,10 +25,10 @@ resource "aws_security_group" "alb_security_group" {
   }
 
   ingress {
-    description      = "TLS from Internet"
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
+    description = "TLS from Internet"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -200,7 +200,7 @@ resource "aws_autoscaling_group" "auto_scaling_group" {
       #instance_warmup = 300 # Default behavior is to use the Auto Scaling Group's health check grace period.
       min_healthy_percentage = 50
     }
-    triggers = [ /*"launch_template",*/ "desired_capacity" ] # You can add any argument from ASG here, if those has changes, ASG Instance Refresh will trigger
+    triggers = [/*"launch_template",*/ "desired_capacity"] # You can add any argument from ASG here, if those has changes, ASG Instance Refresh will trigger
   }
 }
 
