@@ -258,6 +258,7 @@ resource "aws_launch_template" "launch_template_meow" {
   name          = "${var.environment}-launch-template"
   image_id      = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
+  update_default_version = true # Updates default_version to latest_version on terraform apply
   # key_name      = "test-aws"
   network_interfaces {
     device_index                = 0
