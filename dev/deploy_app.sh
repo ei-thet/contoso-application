@@ -23,7 +23,7 @@ cat << EOM > /var/www/html/index.html
   <!-- BEGIN -->
   <center><img src="http://placekitten.com/600/400"></img></center>
   <center><h2>Hello Cloud!</h2></center>
-  Welcome to Meow App Version-2. This app is deployed automatically by terraform cloud!.
+  Welcome to Meow App Version-3. This app is deployed automatically by terraform cloud!.
   <!-- END -->
 
   </div>
