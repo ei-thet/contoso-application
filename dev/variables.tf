@@ -30,3 +30,10 @@ variable "private_subnet_cidr" {
   type        = list(string)
   default     = ["10.10.4.0/24", "10.10.5.0/24", "10.10.6.0/24"]
 }
+
+# Launch Template and ASG Variables
+variable "instance_type" {
+  description = "launch template EC2 instance type"
+  type        = string
+  default     = "t2.micro"
+}
